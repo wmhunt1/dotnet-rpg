@@ -1,2 +1,1 @@
-# dotnet-rpg
-placeholder
+used [ C# & .NET Game ] - Console State RPG tutorial series
