@@ -13,7 +13,6 @@ namespace DotNetRPG
            get {return this.end;}
            set {this.end = value;}
        }
-       private GUI gui;
         private Stack<State> states;
        //private functions
          private void InitVariables()
@@ -26,34 +25,28 @@ namespace DotNetRPG
              //Console.WriteLine(this.states.GetHashCode();
            //push the first state
            this.states.Push(new StateMainMenu(this.states));
+            this.states.Push(new StateGame(this.states));
        }
-      private void InitGUI()
-      {
-          this.gui = new GUI();
-      }
        //Constructors and Destructors
        public Game(){
            this.InitVariables();
            this.InitStates();
-           this.InitGUI();
 
            //Console.WriteLine("Hello from the Game Class!");
        }
        public void Run()
        {
-           while(this.end == false)
+           while(this.states.Count > 0)
            {
-               this.gui.render();
-                 Console.WriteLine("Write a number: ");
-                 int number = Convert.ToInt32(Console.ReadLine());
-                if (number < 0)
-                {
-                    this.end = true;
-                }
-                else
-                {
-                    Console.WriteLine("You inputed: " + number);
-                }
+                 if (this.states.Count > 0)
+                 {
+                    this.states.Peek().Update();
+                    if (this.states.Peek().QuitGame())
+                    //not sure if needs these brackets
+                    {
+                        this.states.Pop();
+                    }
+                 }
            }
            Console.WriteLine("Ending Game...");
        }
