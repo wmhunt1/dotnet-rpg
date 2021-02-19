@@ -24,8 +24,8 @@ namespace DotNetRPG
            this.states = new Stack<State>();
              //Console.WriteLine(this.states.GetHashCode();
            //push the first state
-           this.states.Push(new StateMainMenu(this.states));
-            this.states.Push(new StateGame(this.states));
+            this.states.Push(new StateMainMenu(this.states));
+            //this.states.Push(new StateGame(this.states));
        }
        //Constructors and Destructors
        public Game(){

@@ -13,8 +13,11 @@ namespace DotNetRPG
         }
          override public void Update()
         {
-            Console.WriteLine("Write a number in the Game State: ");
             int number = Convert.ToInt32(Console.ReadLine());
+            Console.Write(GUI.MenuTitle("Game State"));
+            Console.Write(GUI.MenuOption(0, "Create Character"));
+            Console.Write(GUI.MenuOption(-1, "Exit"));
+            Console.WriteLine("Write a number in the Game State: ");
             if (number < 0)
             {
                 this.end = true;

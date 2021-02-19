@@ -7,6 +7,7 @@ namespace DotNetRPG
         static void Main(string[] args)
         {
             Game game = new Game();
+            //Console.WriteLine(GUI.Title("Welcome"));
             game.Run();
         }
     }
