@@ -28,9 +28,9 @@ namespace DotNetRPG
          override public void Update()
         {
             int number = Convert.ToInt32(Console.ReadLine());
-            Console.Write(GUI.MenuTitle("Game State"));
-            Console.Write(GUI.MenuOption(1, "Create Character"));
-            Console.Write(GUI.MenuOption(0, "Exit"));
+            GUI.MenuTitle("Game State");
+            GUI.MenuOption(1, "Create Character");
+            GUI.MenuOption(0, "Exit");
             GUI.GetInput("Input");
             int input = Convert.ToInt32(Console.ReadLine());
             this.ProcessInput(input);

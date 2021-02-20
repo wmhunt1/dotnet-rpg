@@ -7,7 +7,21 @@ namespace DotNetRPG
 {
     class StateCharacterCreator : State
     {
+         //variables
          protected ArrayList characterList;
+         //private functions 
+
+        private void CreateCharacter()
+        {
+            String name ="";
+            GUI.GetInput("Input Character Name: ");
+            name = Console.ReadLine();
+            String description = "";
+            GUI.GetInput("Input character description: ");
+            description = Console.ReadLine();
+            this.characterList.Add(new Character(name, description));
+            GUI.Announcement("Character Created");
+        }  
          public StateCharacterCreator(Stack<State> states, ArrayList character_list) 
         : base(states)
         {
@@ -18,10 +32,7 @@ namespace DotNetRPG
             switch (input)
             {
                 case 1:
-                    this.characterList.Add(new Character("Hero"));
-                    this.characterList.Add(new Character("Bob"));
-                    this.characterList.Add(new Character("Sven"));
-                    Console.Write(GUI.Announcement("Character Created"));
+                    this.CreateCharacter();
                 break;
                 case 0:
                 this.end = true;
@@ -30,13 +41,13 @@ namespace DotNetRPG
                     break;
             }
         }
-          override public void Update()
+        override public void Update()
         {
-            Console.Write(GUI.MenuTitle("Character Creator"));
-            Console.Write(GUI.MenuOption(1, "New Character"));
-            Console.Write(GUI.MenuOption(2, "Edit Character"));
-            Console.Write(GUI.MenuOption(3, "Delete Character"));
-            Console.Write(GUI.MenuOption(0, "Exit"));
+            GUI.MenuTitle("Character Creator");
+            GUI.MenuOption(1, "New Character");
+            GUI.MenuOption(2, "Edit Character");
+            GUI.MenuOption(3, "Delete Character");
+            GUI.MenuOption(0, "Exit");
             GUI.GetInput("Input");
             int input = Convert.ToInt32(Console.ReadLine());
             this.ProcessInput(input);

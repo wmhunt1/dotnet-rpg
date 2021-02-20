@@ -34,11 +34,11 @@ namespace DotNetRPG
         }
         override public void Update()
         {
-            Console.Write(GUI.MenuTitle("Main Menu"));
-            Console.Write(GUI.MenuOption(1, "New Game"));
-            Console.Write(GUI.MenuOption(2, "Character Creator"));
-              Console.Write(GUI.MenuOption(3, "List Characters"));
-            Console.Write(GUI.MenuOption(0, "Exit"));
+            GUI.MenuTitle("Main Menu");
+            GUI.MenuOption(1, "New Game");
+            GUI.MenuOption(2, "Character Creator");
+            GUI.MenuOption(3, "List Characters");
+            GUI.MenuOption(0, "Exit");
             GUI.GetInput("Input");
             int input = Convert.ToInt32(Console.ReadLine());
             this.ProcessInput(input);

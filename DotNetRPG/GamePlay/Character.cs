@@ -8,6 +8,7 @@ namespace DotNetRPG
     {
         //Core 
         private String name = "";
+        private String description = "";
         private int level = 0;
         private int attributePoints = 3;
         private int exp = 0;
@@ -43,10 +44,11 @@ namespace DotNetRPG
             this.defense = this.agility * 2;
 
         }
-        public Character(String name)
+        public Character(String name, String description)
         {
             this.CalculateStats();
             this.name = name;
+            this.description = description;
         }
         public override String ToString()
         {
