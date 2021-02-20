@@ -4,14 +4,14 @@ using System.Text;
 
 namespace DotNetRPG
 {
-    class StateGame : State
+    class StateCharacterCreator : State
     {
-        public StateGame(Stack<State> states) 
+         public StateCharacterCreator(Stack<State> states) 
         : base(states)
         {
-            //Console.WriteLine("Hello from the Game State.");
+           
         }
-         public void ProcessInput(int input)
+          public void ProcessInput(int input)
         {
             switch (input)
             {
@@ -22,11 +22,12 @@ namespace DotNetRPG
                     break;
             }
         }
-         override public void Update()
+          override public void Update()
         {
-            int number = Convert.ToInt32(Console.ReadLine());
-            Console.Write(GUI.MenuTitle("Game State"));
-            Console.Write(GUI.MenuOption(0, "Create Character"));
+            Console.Write(GUI.MenuTitle("Character Creator"));
+            Console.Write(GUI.MenuOption(0, "New Character"));
+            Console.Write(GUI.MenuOption(1, "Edit Character"));
+            Console.Write(GUI.MenuOption(2, "Delete Character"));
             Console.Write(GUI.MenuOption(-1, "Exit"));
             GUI.GetInput("Input");
             int input = Convert.ToInt32(Console.ReadLine());
