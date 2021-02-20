@@ -31,8 +31,7 @@ namespace DotNetRPG
             GUI.MenuTitle("Game State");
             GUI.MenuOption(1, "Create Character");
             GUI.MenuOption(0, "Exit");
-            GUI.GetInput("Input");
-            int input = Convert.ToInt32(Console.ReadLine());
+            int input = GUI.GetInputInt("Input");
             this.ProcessInput(input);
         }
     }

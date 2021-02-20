@@ -21,12 +21,13 @@ namespace DotNetRPG
                 this.end = true;
                 break;
                 case 1:
+                    this.StartNewGame();
                 break;
                 case 2:
                 this.states.Push(new StateCharacterCreator(this.states, this.characterList));
                 break;
-                 case 3:
-                 Console.WriteLine(this.characterList.Count);
+                case 3:
+                    this.SelectCharacter();
                 break;
                 default:
                     break;
@@ -37,11 +38,21 @@ namespace DotNetRPG
             GUI.MenuTitle("Main Menu");
             GUI.MenuOption(1, "New Game");
             GUI.MenuOption(2, "Character Creator");
-            GUI.MenuOption(3, "List Characters");
-            GUI.MenuOption(0, "Exit");
-            GUI.GetInput("Input");
-            int input = Convert.ToInt32(Console.ReadLine());
+            GUI.MenuOption(3, "Select Character");
+            GUI.MenuOption(0, "Exit Game");
+            int input = GUI.GetInputInt("Input");
             this.ProcessInput(input);
+        }
+        public void StartNewGame()
+        {
+
+        }
+        public void SelectCharacter()
+        {
+            foreach (var character in this.characterList)
+            {
+                Console.WriteLine(character.ToString());
+            }
         }
     }
 }

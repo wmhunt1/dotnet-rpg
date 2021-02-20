@@ -34,8 +34,26 @@ namespace DotNetRPG
        }
        public static void GetInput(String str)
        {
-            str = String.Format(" - {0} :", str);
+            str = String.Format(" - {0}: ", str);
             Console.Write(str);
+       }
+       public static int GetInputInt(string message)
+       {
+            int input = -10;
+            while (input == -10)
+            {
+               try 
+               {
+                    GUI.GetInput("Input");
+                    input = Convert.ToInt32(Console.ReadLine());
+               }
+               catch(Exception e) //Error
+               {
+                    input = -10;
+                    Console.WriteLine(e.Message);
+               }
+            }
+            return input;
        }
     }
 }

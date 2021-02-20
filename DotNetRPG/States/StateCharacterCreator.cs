@@ -14,10 +14,10 @@ namespace DotNetRPG
         private void CreateCharacter()
         {
             String name ="";
-            GUI.GetInput("Input Character Name: ");
+            GUI.GetInput("Input Character Name");
             name = Console.ReadLine();
             String description = "";
-            GUI.GetInput("Input character description: ");
+            GUI.GetInput("Input character description");
             description = Console.ReadLine();
             this.characterList.Add(new Character(name, description));
             GUI.Announcement("Character Created");
@@ -47,9 +47,8 @@ namespace DotNetRPG
             GUI.MenuOption(1, "New Character");
             GUI.MenuOption(2, "Edit Character");
             GUI.MenuOption(3, "Delete Character");
-            GUI.MenuOption(0, "Exit");
-            GUI.GetInput("Input");
-            int input = Convert.ToInt32(Console.ReadLine());
+            GUI.MenuOption(0, "Exit Character Creator");
+            int input = GUI.GetInputInt("Input");
             this.ProcessInput(input);
         }
     }
