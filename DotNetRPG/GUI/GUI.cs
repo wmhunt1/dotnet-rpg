@@ -21,6 +21,11 @@ namespace DotNetRPG
             str = String.Format("- ({0}) : {1} :\n", index, str);
             return str;
        }
+         public static String Announcement(String str)
+       {
+            str = String.Format(" ~ ({0})!\n", str);
+            return str;
+       }
        public static String GetInput(String str)
        {
             str = String.Format(" - {0} :", str);

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +7,7 @@ namespace DotNetRPG
 {
     class Game
     {
+       private ArrayList characterList;
        //variable
        private bool end;
        public bool End
@@ -15,21 +17,26 @@ namespace DotNetRPG
        }
         private Stack<State> states;
        //private functions
-         private void InitVariables()
+        private void InitVariables()
         {
             this.end = false;
         }
-       private void InitStates()
+        private void InitCharacterList()
+        {
+            this.characterList = new ArrayList();
+        }
+        private void InitStates()
        {
            this.states = new Stack<State>();
              //Console.WriteLine(this.states.GetHashCode();
            //push the first state
-            this.states.Push(new StateMainMenu(this.states));
+            this.states.Push(new StateMainMenu(this.states, this.characterList));
             //this.states.Push(new StateGame(this.states));
        }
        //Constructors and Destructors
        public Game(){
            this.InitVariables();
+           this.InitCharacterList();
            this.InitStates();
 
            //Console.WriteLine("Hello from the Game Class!");
