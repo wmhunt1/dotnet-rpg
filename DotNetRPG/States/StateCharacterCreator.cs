@@ -17,7 +17,7 @@ namespace DotNetRPG
             GUI.GetInput("Input Character Name");
             name = Console.ReadLine();
             String description = "";
-            GUI.GetInput("Input character description");
+            //GUI.GetInput("Input character description");
             description = Console.ReadLine();
             this.characterList.Add(new Character(name, description));
             GUI.Announcement("Character Created");

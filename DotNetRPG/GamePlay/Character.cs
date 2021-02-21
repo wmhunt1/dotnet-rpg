@@ -50,9 +50,17 @@ namespace DotNetRPG
             this.name = name;
             this.description = description;
         }
-        public override String ToString()
+        public String Name()
         {
             return this.name;
+        }
+        public override String ToString()
+        {
+            String str = $"Name:\t\t{this.name}\n" +
+            //$"Description:\t{this.description}\n" +
+            $"Level:\t\t{this.level}\n" +
+            $"Exp:\t\t{this.exp}/{this.expMax}\n";
+            return str;
         }
     }
 }

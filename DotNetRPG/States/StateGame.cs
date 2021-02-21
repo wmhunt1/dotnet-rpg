@@ -7,19 +7,22 @@ namespace DotNetRPG
 {
     class StateGame : State
     {
-        protected ArrayList characterList;
-        public StateGame(Stack<State> states, ArrayList character_list) 
+        protected Character character;
+        public StateGame(Stack<State> states, Character activeCharacter) 
         : base(states)
         {
             //Console.WriteLine("Hello from the Game State.");
-             this.characterList = character_list;
+             this.character = activeCharacter;
         }
          public void ProcessInput(int input)
         {
             switch (input)
             {
                 case 0:
-                this.end = true;
+                    this.end = true;
+                break;
+                case 1:
+                    Console.WriteLine(this.character.ToString());
                 break;
                 default:
                     break;
@@ -27,9 +30,8 @@ namespace DotNetRPG
         }
          override public void Update()
         {
-            int number = Convert.ToInt32(Console.ReadLine());
             GUI.MenuTitle("Game State");
-            GUI.MenuOption(1, "Create Character");
+            GUI.MenuOption(1, "Character Stats");
             GUI.MenuOption(0, "Exit");
             int input = GUI.GetInputInt("Input");
             this.ProcessInput(input);

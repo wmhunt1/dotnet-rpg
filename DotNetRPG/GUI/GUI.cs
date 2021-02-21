@@ -44,7 +44,7 @@ namespace DotNetRPG
             {
                try 
                {
-                    GUI.GetInput("Input");
+                    GUI.GetInput(message);
                     input = Convert.ToInt32(Console.ReadLine());
                }
                catch(Exception e) //Error
