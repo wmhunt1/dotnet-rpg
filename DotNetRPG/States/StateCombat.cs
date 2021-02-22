@@ -5,10 +5,10 @@ using System.Text;
 
 namespace DotNetRPG
 {
-    class StateGame : State
+    class StateCombat : State
     {
         protected Character character;
-        public StateGame(Stack<State> states, Character activeCharacter) 
+        public StateCombat(Stack<State> states, Character activeCharacter) 
         : base(states)
         {
             //Console.WriteLine("Hello from the Game State.");
@@ -24,18 +24,14 @@ namespace DotNetRPG
                 case 1:
                     Console.WriteLine(this.character.ToString());
                 break;
-                case 2:
-                    this.states.Push(new StateCombat(this.states, this.character));
-                break;
                 default:
                     break;
             }
         }
          override public void Update()
         {
-            GUI.MenuTitle("Game State");
+            GUI.MenuTitle("Combat");
             GUI.MenuOption(1, "Character Stats");
-            GUI.MenuOption(2, "Combat Test");
             GUI.MenuOption(0, "Exit");
             int input = GUI.GetInputInt("Input");
             this.ProcessInput(input);

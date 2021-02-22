@@ -40,7 +40,7 @@ namespace DotNetRPG
             //want to switch to load game etc eventually
             if (this.activeCharacter != null)
             {
-                Console.WriteLine("Active Character: " + this.activeCharacter.Name() + "\n")
+                Console.WriteLine("Active Character: " + this.activeCharacter.Name() + "\n");
             }
             GUI.MenuTitle("Main Menu");
             GUI.MenuOption(1, "New Game");

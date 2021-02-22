@@ -38,6 +38,7 @@ namespace DotNetRPG
            this.InitVariables();
            this.InitCharacterList();
            this.InitStates();
+           this.characterList.Add(new Character("Hero", ""));
 
            //Console.WriteLine("Hello from the Game Class!");
        }
