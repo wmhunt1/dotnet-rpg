@@ -24,9 +24,6 @@ namespace DotNetRPG
                 case 1:
                     Console.WriteLine(this.character.ToString());
                 break;
-                case 2:
-                    this.states.Push(new StateCombat(this.states, this.character));
-                break;
                 default:
                     break;
             }
@@ -35,7 +32,6 @@ namespace DotNetRPG
         {
             GUI.MenuTitle("Game State");
             GUI.MenuOption(1, "Character Stats");
-            GUI.MenuOption(2, "Combat Test");
             GUI.MenuOption(0, "Exit");
             int input = GUI.GetInputInt("Input");
             this.ProcessInput(input);
