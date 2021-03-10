@@ -7,6 +7,8 @@ namespace RPG
 {
     class Game
     {
+        Character hero = new Character("Hero", 10, 10);
+        Character goblin = new Character("Goblin", 5, 5);
         private bool end;
         public bool End { get {return this.end;} set {this.end = value;} }
 
@@ -43,6 +45,7 @@ namespace RPG
                 {
                     case "1":
                         Console.WriteLine("Playing Game");
+                        PlayGame();
                         break;
                     case "2":
                         Console.WriteLine("Starting New Game");
@@ -59,6 +62,31 @@ namespace RPG
                     default:
                         Console.WriteLine("Invalid input");
                         break;
+                }
+            }
+            public void PlayGame()
+            {
+                Combat(hero, goblin);
+            }
+            public void Combat(Character char1, Character char2)
+            {
+                Console.WriteLine($"{char1.Name} is in combat with {char2.Name}");
+                while (char1.Hp > 0 && char2.Hp > 0)
+                {
+                    Console.WriteLine($"{char1.Name}: {char1.Hp} VS {char2.Name}: {char2.Hp}");
+                    Console.WriteLine($"{char1.Name} attacks");
+                    char2.Hp -= 1;
+                    Console.WriteLine($"{char2.Name} attacks");
+                    char1.Hp -= 1;
+                    GUI.AnyButton();
+                }
+                if (char1.Hp > 0)
+                {
+                    Console.WriteLine($"{char1.Name} wins");
+                }
+                else
+                {
+                    Console.WriteLine($"{char1.Name} loses");
                 }
             }
         }

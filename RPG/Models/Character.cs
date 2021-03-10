@@ -6,6 +6,15 @@ namespace RPG
 {
     class Character
     {
-        private String name = "";
+        public String Name;
+        public int Hp;
+        public int MaxHp;
+
+        public Character (String charName, int charHp, int charMaxHp)
+        {
+            Name = charName;
+            Hp = charHp;
+            MaxHp = charMaxHp;
+        }
     }
 }
