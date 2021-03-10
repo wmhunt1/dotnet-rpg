@@ -1,0 +1,15 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace RPG
+{
+    public class GUI
+    {
+         public static void AnyButton()
+        {
+            Console.WriteLine("Press any key to continue");
+            Console.ReadLine();
+        }
+    }
+}
