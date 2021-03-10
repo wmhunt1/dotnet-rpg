@@ -13,7 +13,7 @@ namespace RPG
         }
         public static void Title()
         {
-            Console.WriteLine("---------- Heroes of The Imperial Federation -----------");
+            Console.WriteLine("------------------------------ Heroes of The Imperial Federation -------------------------------");
         }
     }
 }

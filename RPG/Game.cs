@@ -7,7 +7,7 @@ namespace RPG
 {
     class Game
     {
-        Character hero = new Character("Hero", 10, 10, 1);
+        Character hero = new Character("Hero", "The Hero", 1);
         private bool end;
         private bool playingGame;
         public bool End { get {return this.end;} set {this.end = value;} }
@@ -73,6 +73,7 @@ namespace RPG
                 playingGame = true;
                 while (playingGame == true)
                 {
+                    //Maybe change this to Game something where you look at the menu seperately
                     GameMenu();
                 }
             }
@@ -84,20 +85,26 @@ namespace RPG
                 Console.WriteLine("You are an adventurer travelling to The Village of Dale within The Valley of Dale.");
                 GUI.AnyButton();
             }
-
             public void GameMenu()
             {
                 GUI.Title();
-                Console.WriteLine("[1] Character Sheet");
-                Console.WriteLine("[2] Combat Test");
-                Console.WriteLine("[0] Main Menu");
+                Console.WriteLine("[1] Character Sheet [2] Inventory [3] Journal [4] World Map [9] Combat Test [0] Main Menu");
                 string userInput = Console.ReadLine();
                 switch (userInput)
                 {
                     case "1":
-                        Console.WriteLine("Viewing Character Sheet");
+                        Console.WriteLine(hero.ToString());
                         break;
                     case "2":
+                        Console.WriteLine("Viewing Inventory");
+                        break;
+                    case "3":
+                        Console.WriteLine("Viewing Journal");
+                        break;
+                    case "4":
+                        Console.WriteLine("Viewing World Map");
+                        break;
+                    case "9":
                         CombatTest();
                         break;
                     case "0":
@@ -111,33 +118,35 @@ namespace RPG
             }
             public void ViewCharacterSheet()
             {
-                Console.WriteLine("${hero.Name}");
+                Console.WriteLine("${hero.name}");
                 GUI.AnyButton();
             }
             public void Combat(Character char1, Character char2)
             {
-                Console.WriteLine($"{char1.Name} is in combat with {char2.Name}");
-                while (char1.Hp > 0 && char2.Hp > 0)
+                Console.WriteLine($"{char1.name} is in combat with {char2.name}");
+                while (char1.hp > 0 && char2.hp > 0)
                 {
-                    Console.WriteLine($"{char1.Name}: {char1.Hp} VS {char2.Name}: {char2.Hp}");
-                    Console.WriteLine($"{char1.Name} attacks");
-                    char2.Hp -= char1.Atk;
-                    Console.WriteLine($"{char2.Name} attacks");
-                    char1.Hp -= char2.Atk;
+                    Console.WriteLine($"{char1.name}: {char1.hp} VS {char2.name}: {char2.hp}");
+                    Console.WriteLine($"{char1.name} attacks");
+                    char2.hp -= char1.damage;
+                    Console.WriteLine($"{char2.name} attacks");
+                    char1.hp -= char2.damage;
                     GUI.AnyButton();
                 }
-                if (char1.Hp > 0)
+                if (char1.hp > 0)
                 {
-                    Console.WriteLine($"{char1.Name} wins");
+                    Console.WriteLine($"{char1.name} wins");
+                    char1.gainXP(char2.level*10);
                 }
                 else
                 {
-                    Console.WriteLine($"{char1.Name} loses");
+                    Console.WriteLine($"{char1.name} loses");
                 }
             }
             public void CombatTest()
             {
-                Character goblin = new Character("Goblin", 5, 5, 1);
+                Character goblin = new Character("Goblin", "A Goblin", 1);
+                goblin.hp = 5;
                 Combat(hero, goblin);
             }
         }
