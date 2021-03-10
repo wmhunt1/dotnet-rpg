@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RPG
 {
-    class Character
+    public class Character
     {
         //Core 
         public String name = "";
@@ -18,8 +18,8 @@ namespace RPG
         private int constitution = 10;
         private int intelligence = 10;
         private int wisdom = 10;
-        private int charisma = 10;
-        private int luck = 10;
+        //private int charisma = 10;
+        //private int luck = 10;
         //Derived Stats
         public int hp = 0;
         public int maxHp = 0;
@@ -38,7 +38,7 @@ namespace RPG
         private int magicDefense = 0; 
 
         //General
-        int gold = 10;
+        //int gold = 10;
 
         private void CalculateExp()
         {

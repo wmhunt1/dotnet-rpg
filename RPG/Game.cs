@@ -93,7 +93,7 @@ namespace RPG
                 switch (userInput)
                 {
                     case "1":
-                        Console.WriteLine(hero.ToString());
+                        ViewCharacterSheet();
                         break;
                     case "2":
                         Console.WriteLine("Viewing Inventory");
@@ -118,36 +118,16 @@ namespace RPG
             }
             public void ViewCharacterSheet()
             {
-                Console.WriteLine("${hero.name}");
+                Console.WriteLine("---- Character Sheet ----");
+                Console.WriteLine(hero.ToString());
                 GUI.AnyButton();
-            }
-            public void Combat(Character char1, Character char2)
-            {
-                Console.WriteLine($"{char1.name} is in combat with {char2.name}");
-                while (char1.hp > 0 && char2.hp > 0)
-                {
-                    Console.WriteLine($"{char1.name}: {char1.hp} VS {char2.name}: {char2.hp}");
-                    Console.WriteLine($"{char1.name} attacks");
-                    char2.hp -= char1.damage;
-                    Console.WriteLine($"{char2.name} attacks");
-                    char1.hp -= char2.damage;
-                    GUI.AnyButton();
-                }
-                if (char1.hp > 0)
-                {
-                    Console.WriteLine($"{char1.name} wins");
-                    char1.gainXP(char2.level*10);
-                }
-                else
-                {
-                    Console.WriteLine($"{char1.name} loses");
-                }
             }
             public void CombatTest()
             {
                 Character goblin = new Character("Goblin", "A Goblin", 1);
                 goblin.hp = 5;
-                Combat(hero, goblin);
+                Combat newCombat = new Combat();
+                newCombat.RunCombat(hero, goblin);
             }
         }
 }
