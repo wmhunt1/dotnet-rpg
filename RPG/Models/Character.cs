@@ -61,7 +61,7 @@ namespace RPG
          private void LevelUP()
         {
             this.level++;
-            Console.WriteLine($"{this.name} has leveled up.");
+            GUI.Announcement($"{this.name} has leveled up.");
             CalculateExp();
             CalculateStats();
         }
@@ -69,7 +69,7 @@ namespace RPG
         public void gainXP(int x)
         {
             this.exp += x;
-            Console.WriteLine($"{this.name} gained {x} XP");
+            GUI.Announcement($"{this.name} gained {x} XP");
             if (this.exp >= maxExp)
             {
                 LevelUP();

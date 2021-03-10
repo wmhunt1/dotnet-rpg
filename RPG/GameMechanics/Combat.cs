@@ -46,19 +46,19 @@ namespace RPG
                 {
                     if (combat == true)
                     {
-                        Console.WriteLine($"{char1.name} wins");
+                        GUI.Announcement($"{char1.name} wins");
                         char1.gainXP(char2.level*10);
                     }
                     else
                     {
                         {
-                            Console.WriteLine($"{char1.name} fled.");
+                            GUI.Announcement($"{char1.name} fled.");
                         }
                     }
                 }
                 else
                 {
-                    Console.WriteLine($"{char1.name} loses");
+                    GUI.Announcement($"{char1.name} loses");
                 }
             }
     }
