@@ -32,7 +32,7 @@ namespace RPG
                 }
                     if (combat == true)
                     {
-                        Console.WriteLine($"{char2.name} attacks {char2.name} dealing {char1.damage} damage.");
+                        Console.WriteLine($"{char2.name} attacks {char1.name} dealing {char2.damage} damage.");
                         char1.hp -= char2.damage;
                     }
                     else
