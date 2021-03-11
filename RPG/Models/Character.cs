@@ -13,7 +13,7 @@ namespace RPG
         public int exp = 0;
         public int maxExp = 100;
         //Attributes/Abilities
-        private int strength = 10;
+        public int strength = 10;
         private int dexterity = 10;
         private int constitution = 10;
         private int intelligence = 10;
@@ -40,11 +40,13 @@ namespace RPG
         //General
         //int gold = 10;
 
+        //Skills
+
         private void CalculateExp()
         {
             this.maxExp = level * 100;
         }
-        private void CalculateStats()
+        public void CalculateStats()
         {
             this.hp = this.constitution*this.level;
             this.maxHp = this.constitution*this.level;
@@ -86,7 +88,10 @@ namespace RPG
         {
             String str = $"Name:\t{this.name}\n" +
             $"Level:\t{this.level}\n" +
-            $"Exp:\t{this.exp}/{this.maxExp}\n";
+            $"HP:\t{this.hp}/{this.maxHp}\n" +
+            $"MP:\t{this.mp}/{this.maxMp}\n" +
+            $"STA:\t{this.stamina}/{this.maxStamina}\n" +
+            $"EXP:\t{this.exp}/{this.maxExp}\n";
             return str;
         }
        
