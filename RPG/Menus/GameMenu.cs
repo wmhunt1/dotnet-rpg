@@ -8,6 +8,9 @@ namespace RPG
     public class GameMenu
     {
         public Character hero = new Character("Hero", "Your PC", 1);
+        public ValleyMap valleyMap = new ValleyMap();
+        public VillageMap villageMap = new VillageMap();
+        public WorldMap worldMap = new WorldMap();
 
         private bool playingGame;
         public bool PlayingGame { get { return this.playingGame; } set { this.playingGame = value; } }
@@ -20,6 +23,8 @@ namespace RPG
                 {
                     GUI.Title("------------------------------ Heroes of The Imperial Federation -------------------------------");
                     Console.WriteLine("[1] Character Sheet [2] Inventory [3] Journal [4] World Map [8] Quest Test [9] Combat Test [0] Main Menu");
+                    valleyMap.DisplayMapName();
+                    valleyMap.ViewMap();
                     string userInput = Console.ReadLine();
                     switch (userInput)
                     {
@@ -33,7 +38,9 @@ namespace RPG
                             Console.WriteLine("Viewing Journal");
                             break;
                         case "4":
-                            Console.WriteLine("Viewing World Map");
+                            worldMap.DisplayMapName();
+                            worldMap.ViewMap();
+                            AnyButton();
                             break;
                         case "8":
                             QuestTest newQuestTest = new QuestTest();
