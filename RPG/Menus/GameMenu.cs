@@ -13,12 +13,13 @@ namespace RPG
         public bool PlayingGame { get { return this.playingGame; } set { this.playingGame = value; } }
         public void DisplayGameMenu()
         {
+            GUI.AnyButton();
             playingGame = true;
             while (playingGame == true)
             {
                 {
                     GUI.Title("------------------------------ Heroes of The Imperial Federation -------------------------------");
-                    Console.WriteLine("[1] Character Sheet [2] Inventory [3] Journal [4] World Map [9] Combat Test [0] Main Menu");
+                    Console.WriteLine("[1] Character Sheet [2] Inventory [3] Journal [4] World Map [8] Quest Test [9] Combat Test [0] Main Menu");
                     string userInput = Console.ReadLine();
                     switch (userInput)
                     {
@@ -34,10 +35,13 @@ namespace RPG
                         case "4":
                             Console.WriteLine("Viewing World Map");
                             break;
+                        case "8":
+                            QuestTest newQuestTest = new QuestTest();
+                            newQuestTest.StartQuest(hero);
+                            break;
                         case "9":
                             CombatTest newCombatTest = new CombatTest();
                             newCombatTest.RunCombatTest(hero);
-                            //CombatTest();
                             break;
                         case "0":
                             playingGame = false;
