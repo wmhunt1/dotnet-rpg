@@ -7,7 +7,7 @@ namespace RPG
 {
     class Game
     {
-        public Character hero = new Character("Hero", "Your PC", 1);
+        //public Character hero = new Character("Hero", "Your PC", 1);
         private bool end;
         public bool End { get {return this.end;} set {this.end = value;} }
 
