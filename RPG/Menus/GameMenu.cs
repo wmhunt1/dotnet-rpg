@@ -7,7 +7,6 @@ namespace RPG
 
     public class GameMenu
     {
-        //Character newHero = hero;
         private bool playingGame;
         public bool PlayingGame { get { return this.playingGame; } set { this.playingGame = value; } }
         public void DisplayGameMenu()
@@ -34,6 +33,8 @@ namespace RPG
                             Console.WriteLine("Viewing World Map");
                             break;
                         case "9":
+                            CombatTest newCombatTest = new CombatTest();
+                            newCombatTest.RunCombatTest();
                             //CombatTest();
                             break;
                         case "0":
@@ -53,12 +54,5 @@ namespace RPG
             //Console.WriteLine(hero.ToString());
             GUI.AnyButton();
         }
-        // public void CombatTest()
-        // {
-        //     Character goblin = new Character("Goblin", "A Goblin", 1);
-        //     goblin.hp = 5;
-        //     Combat newCombat = new Combat();
-        //     newCombat.RunCombat(newHero, goblin);
-        // }
     }
 }

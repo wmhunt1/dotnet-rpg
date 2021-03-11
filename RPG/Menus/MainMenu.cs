@@ -15,14 +15,14 @@ namespace RPG
            this.endMenu = false;
            while (endMenu == false)
            {
-                 Console.WriteLine("Main Menu");
-            Console.WriteLine("[1] Continue");
-            Console.WriteLine("[2] New Game");
-            Console.WriteLine("[3] Load Game");
-            Console.WriteLine("[4] Settings");
-            Console.WriteLine("[0] Exit Game");
-            string userInput = Console.ReadLine();
-            switch (userInput)
+                Console.WriteLine("Main Menu");
+                Console.WriteLine("[1] Continue");
+                Console.WriteLine("[2] New Game");
+                Console.WriteLine("[3] Load Game");
+                Console.WriteLine("[4] Settings");
+                Console.WriteLine("[0] Exit Game");
+                string userInput = Console.ReadLine();
+                switch (userInput)
                 {
                     case "1":
                         Console.WriteLine("Playing Game");
@@ -38,12 +38,12 @@ namespace RPG
                         Console.WriteLine("Loading Game");
                         break;
                     case "4":
-                       Console.WriteLine("Settings");
+                        Console.WriteLine("Settings");
                         break;
                     case "0":
                         endMenu = true;
                         break;
-                    default:
+                        default:
                         Console.WriteLine("Invalid input");
                         break;
                 }

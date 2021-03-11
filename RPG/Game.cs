@@ -7,7 +7,7 @@ namespace RPG
 {
     class Game
     {
-        Character hero = new Character("Hero", "The Hero", 1);
+        public Character hero = new Character("Hero", "Your PC", 1);
         private bool end;
         public bool End { get {return this.end;} set {this.end = value;} }
 
@@ -28,6 +28,7 @@ namespace RPG
                 GUI.Title("------------------------------ Heroes of The Imperial Federation -------------------------------");
                 MainMenu newMenu = new MainMenu();
                 newMenu.DisplayMainMenu();
+                this.end = true;
             }
             Console.WriteLine("Game Over");
         }
